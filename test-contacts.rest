@@ -1,0 +1,9 @@
+// This file contains HTTP requests for testing the contacts API.
+// 
+// Requests:
+// 1. GET request to the base URL of the API.
+// 2. GET request to retrieve all contacts.
+// 3. GET request to retrieve a specific contact by ID.
+GET https://cse341-c52f.onrender.com/
+GET https://cse341-c52f.onrender.com/contacts
+GET https://cse341-c52f.onrender.com/contacts/607d1f77bcf86cd799439011
