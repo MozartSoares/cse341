@@ -1,68 +1,74 @@
-# This file contains HTTP requests for testing the contacts API.
-# 
-# Requests:
-# 1. GET request to the base URL of the API.
-# 2. GET request to retrieve all contacts.
-# 3. GET request to retrieve a specific contact by ID.
-# 4. POST request to create a new contact.
-# 5. PUT request to update a contact by ID.
-# 6. DELETE request to delete a contact by ID.
-
+### GET request to the base URL of the API.
 GET https://cse341-c52f.onrender.com/
 
+### GET request to retrieve all contacts.
 GET https://cse341-c52f.onrender.com/contacts
 
+### GET request to retrieve a specific contact by ID.
 GET https://cse341-c52f.onrender.com/contacts/607d1f77bcf86cd799439011
 
+### POST request to create a new contact.
 POST https://cse341-c52f.onrender.com/contacts
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "john.doe@example.com",
-  "phone": "123-456-7890"
+  "firstName": "BYU",
+  "lastName": "wdd330",
+  "email": "byu.wdd@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1985-03-22"
 }
 
+### PUT request to update a contact by ID.
 PUT https://cse341-c52f.onrender.com/contacts/607d1f77bcf86cd799439011
 Content-Type: application/json
 
 {
-  "name": "Jane Doe",
-  "email": "jane.doe@example.com",
-  "phone": "098-765-4321"
+  "firstName": "test",
+  "lastName": "test",
+  "email": "test.test@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1992-07-15"
 }
 
+### DELETE request to delete a contact by ID.
 DELETE https://cse341-c52f.onrender.com/contacts/607d1f77bcf86cd799439011
 
-# LOCALHOST
-###
+### LOCALHOST
+
+### GET request to the base URL of the API.
 GET http://localhost:3000/
 
-###
+### GET request to retrieve all contacts.
 GET http://localhost:3000/contacts
 
-###
+### GET request to retrieve a specific contact by ID.
 GET http://localhost:3000/contacts/607d1f77bcf86cd799439011
 
-###
+### POST request to create a new contact.
 POST http://localhost:3000/contacts HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "john.doe@example.com",
-  "username": "John_Doe"
+  "firstName": "BYU",
+  "lastName": "wdd330",
+  "email": "byu.wdd@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1985-03-22"
 }
 
-###
-PUT http://localhost:3000/contacts/67d3474f68027e310f21b234 HTTP/1.1
+### PUT request to update a contact by ID.
+PUT http://localhost:3000/contacts/67d42d95feb6a511ffb1bc49 HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "test",
-  "email": "jane.doe@example.com",
-  "username": "Jane_Doe"
+  "firstName": "test",
+  "lastName": "test",
+  "email": "test.test@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1992-07-15"
 }
 
-###
-DELETE http://localhost:3000/contacts/607d1f77bcf86cd799439011
+### DELETE request to delete a contact by ID.
+DELETE http://localhost:3000/contacts/67d42d529d16155ca7af26ed
+
