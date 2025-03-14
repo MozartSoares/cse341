@@ -35,13 +35,26 @@
         "tags": ["Contacts"],
         "description": "Endpoint to create a contact",
         "produces": ["application/json"],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": { "type": "string" },
+                "lastName": { "type": "string" },
+                "email": { "type": "string", "format": "email" },
+                "favoriteColor": { "type": "string" },
+                "birthday": { "type": "string", "format": "date" }
+              }
+            }
           }
+        ],
+        "responses": {
+          "201": { "description": "Created" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     },
@@ -71,13 +84,22 @@
       "put": {
         "tags": ["Contacts"],
         "description": "Endpoint to update a contact",
+        "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
+            "in": "body",
+            "name": "body",
             "required": true,
-            "type": "string",
-            "description": "Contact ID"
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": { "type": "string" },
+                "lastName": { "type": "string" },
+                "email": { "type": "string", "format": "email" },
+                "favoriteColor": { "type": "string" },
+                "birthday": { "type": "string", "format": "date" }
+              }
+            }
           }
         ],
         "responses": {
