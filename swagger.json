@@ -100,6 +100,13 @@
                 "birthday": { "type": "string", "format": "date" }
               }
             }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Contact ID"
           }
         ],
         "responses": {
