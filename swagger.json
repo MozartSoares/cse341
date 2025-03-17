@@ -1,13 +1,13 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts Api",
-    "description": "Contacts Api",
+    "title": "Recipes Api",
+    "description": "Recipes Api",
     "version": "1.0.0"
   },
-  "host": "cse341-c52f.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": ["http", "https"],
   "paths": {
     "/": {
       "get": {
@@ -20,98 +20,108 @@
         }
       }
     },
-    "/contacts/": {
+    "/recipes/": {
       "get": {
-        "tags": ["Contacts"],
-        "description": "Endpoint to get all contacts",
-        "produces": ["application/json"],
+        "tags": ["Recipes"],
+        "description": "Endpoint to get all recipes",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
-        "tags": ["Contacts"],
-        "description": "Endpoint to create a contact",
-        "produces": ["application/json"],
+        "tags": ["Recipes"],
+        "description": "Endpoint to create a recipe",
         "parameters": [
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
+            "description": "Recipe data",
             "required": true,
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": { "type": "string" },
-                "lastName": { "type": "string" },
-                "email": { "type": "string", "format": "email" },
-                "favoriteColor": { "type": "string" },
-                "birthday": { "type": "string", "format": "date" }
+                "title": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "ingredients": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ingredient": {
+                        "type": "string",
+                        "example": "ObjectId"
+                      },
+                      "quantity": {
+                        "type": "string",
+                        "example": "string"
+                      }
+                    }
+                  }
+                },
+                "instructions": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "cookingTime": {
+                  "type": "string",
+                  "example": "number"
+                },
+                "difficulty": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "cuisine": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "servings": {
+                  "type": "string",
+                  "example": "number"
+                }
               }
             }
           }
         ],
         "responses": {
-          "201": { "description": "Created" },
-          "500": { "description": "Internal Server Error" }
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
         }
       }
     },
-    "/contacts/{id}": {
+    "/recipes/{id}": {
       "get": {
-        "tags": ["Contacts"],
-        "description": "Endpoint to get a single contact",
-        "produces": ["application/json"],
+        "tags": ["Recipes"],
+        "description": "Endpoint to get a single recipe",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Contact ID"
+            "description": "Recipe ID"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "put": {
-        "tags": ["Contacts"],
-        "description": "Endpoint to update a contact",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": { "type": "string" },
-                "lastName": { "type": "string" },
-                "email": { "type": "string", "format": "email" },
-                "favoriteColor": { "type": "string" },
-                "birthday": { "type": "string", "format": "date" }
-              }
-            }
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "Contact ID"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
+          "400": {
+            "description": "Bad Request"
           },
           "404": {
             "description": "Not Found"
@@ -121,21 +131,293 @@
           }
         }
       },
-      "delete": {
-        "tags": ["Contacts"],
-        "description": "Endpoint to delete a contact",
+      "put": {
+        "tags": ["Recipes"],
+        "description": "Endpoint to update a recipe",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Contact ID"
+            "description": "Recipe ID"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Recipe data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "ingredients": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ingredient": {
+                        "type": "string",
+                        "example": "ObjectId"
+                      },
+                      "quantity": {
+                        "type": "string",
+                        "example": "string"
+                      }
+                    }
+                  }
+                },
+                "instructions": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "cookingTime": {
+                  "type": "number",
+                  "example": "number"
+                },
+                "difficulty": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "cuisine": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "servings": {
+                  "type": "number",
+                  "example": "number"
+                }
+              }
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Recipes"],
+        "description": "Endpoint to delete a recipe",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Recipe ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/ingredients/": {
+      "get": {
+        "tags": ["Ingredients"],
+        "description": "Endpoint to get all ingredients",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Ingredients"],
+        "description": "Endpoint to create an ingredient",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Ingredient data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "nutritionalInfo": {
+                  "type": "object",
+                  "properties": {
+                    "calories": {
+                      "type": "number",
+                      "example": "number"
+                    },
+                    "fat": {
+                      "type": "number",
+                      "example": "number"
+                    },
+                    "carbs": {
+                      "type": "number",
+                      "example": "number"
+                    },
+                    "protein": {
+                      "type": "number",
+                      "example": "number"
+                    }
+                  }
+                }
+              }
+            },
+            "origin": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/ingredients/{id}": {
+      "get": {
+        "tags": ["Ingredients"],
+        "description": "Endpoint to get a single ingredient",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Ingredient ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Ingredients"],
+        "description": "Endpoint to update an ingredient",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Ingredient ID"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Ingredient data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "nutritionalInfo": {
+                  "type": "object",
+                  "properties": {
+                    "calories": {
+                      "type": "number",
+                      "example": "number"
+                    },
+                    "fat": {
+                      "type": "number",
+                      "example": "number"
+                    },
+                    "carbs": {
+                      "type": "number",
+                      "example": "number"
+                    },
+                    "protein": {
+                      "type": "number",
+                      "example": "number"
+                    }
+                  }
+                },
+                "origin": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Ingredients"],
+        "description": "Endpoint to delete an ingredient",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Ingredient ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "404": {
             "description": "Not Found"

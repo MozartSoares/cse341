@@ -1,0 +1,53 @@
+# ### GET request to retrieve all recipes.
+GET http://localhost:3000/recipes
+
+# ### GET request to retrieve a specific recipe by ID.
+GET http://localhost:3000/recipes/607d1f77bcf86cd799439011
+
+# ### POST request to create a new recipe.
+POST http://localhost:3000/recipes
+Content-Type: application/json
+
+{
+  "title": "Spaghetti Carbonara",
+  "description": "A classic Italian pasta dish",
+  "ingredients": [
+    {
+      "ingredient": "607d1f77bcf86cd799439012",
+      "quantity": "200g"
+    }
+  ],
+  "instructions": "Boil pasta. Cook pancetta. Mix eggs and cheese. Combine all.",
+  "cookingTime": 20,
+  "difficulty": "medium",
+  "cuisine": "Italian",
+  "servings": 4
+}
+
+# ### PUT request to update a recipe by ID.
+PUT http://localhost:3000/recipes/607d1f77bcf86cd799439011
+Content-Type: application/json
+
+{
+  "title": "Spaghetti Carbonara",
+  "description": "A classic Italian pasta dish with a twist",
+  "ingredients": [
+    {
+      "ingredient": "607d1f77bcf86cd799439012",
+      "quantity": "200g"
+    },
+    {
+      "ingredient": "607d1f77bcf86cd799439013",
+      "quantity": "100ml"
+    }
+  ],
+  "instructions": "Boil pasta. Cook pancetta. Mix eggs, cheese, and cream. Combine all.",
+  "cookingTime": 25,
+  "difficulty": "medium",
+  "cuisine": "Italian",
+  "servings": 4
+}
+
+# ### DELETE request to delete a recipe by ID.
+DELETE http://localhost:3000/recipes/607d1f77bcf86cd799439011
+

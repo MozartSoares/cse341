@@ -2,8 +2,8 @@ import swaggerAutogen from 'swagger-autogen';
 
 const doc = {
   info: {
-    title: 'Contacts Api',
-    description: 'Contacts Api',
+    title: 'Recipes Api',
+    description: 'Recipes Api',
   },
   host: 'localhost:3000',
   schemes: ['http', 'https'],
