@@ -6,7 +6,7 @@ const doc = {
     title: 'Recipes Api',
     description: 'Recipes Api',
   },
-  host: process.env.NODE_ENV === 'production' ? 'cse341-c52f.onrender.com/' : 'localhost:3000',
+  host: process.env.NODE_ENV === 'production' ? 'cse341-c52f.onrender.com' : 'localhost:3000',
   schemes: ['http', 'https'],
 };
 
