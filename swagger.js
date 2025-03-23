@@ -1,11 +1,15 @@
 import swaggerAutogen from 'swagger-autogen';
-
+import { config } from 'dotenv';
+config();
 const doc = {
   info: {
     title: 'Recipes Api',
     description: 'Recipes Api',
   },
-  host: 'localhost:3000',
+  host:
+    process.env.NODE_ENV === 'production'
+      ? 'https://cse341-c52f.onrender.com/'
+      : 'http://localhost:3000',
   schemes: ['http', 'https'],
 };
 
