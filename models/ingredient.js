@@ -6,15 +6,17 @@ const IngredientSchema = new Schema(
     name: { type: String, required: true },
     type: { type: String, required: true },
     nutritionalInfo: {
-      calories: { type: Number },
-      fat: { type: Number },
-      carbs: { type: Number },
-      protein: { type: Number },
+      calories: Number,
+      fat: Number,
+      carbs: Number,
+      protein: Number,
     },
-    origin: { type: String },
+    origin: String,
   },
-  { timestamps: true },
-  { collection: 'ingredients' },
+  {
+    timestamps: true,
+    collection: 'ingredients',
+  },
 );
-
-export default model('Ingredient', IngredientSchema);
+const Ingredient = model('Ingredient', IngredientSchema);
+export default Ingredient;

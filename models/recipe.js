@@ -4,7 +4,7 @@ const { Schema, model } = mongoose;
 const RecipeSchema = new Schema(
   {
     title: { type: String, required: true },
-    description: { type: String },
+    description: String,
     ingredients: [
       {
         ingredient: { type: Schema.Types.ObjectId, ref: 'Ingredient', required: true },
@@ -18,11 +18,10 @@ const RecipeSchema = new Schema(
       enum: ['easy', 'medium', 'hard'],
       default: 'medium',
     },
-    cuisine: { type: String },
-    servings: { type: Number },
+    cuisine: String,
+    servings: Number,
   },
-  { timestamps: true },
-  { collection: 'recipes' },
+  { timestamps: true, collection: 'recipes' },
 );
 
 export default model('Recipe', RecipeSchema);

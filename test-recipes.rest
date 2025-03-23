@@ -51,3 +51,16 @@ Content-Type: application/json
 # ### DELETE request to delete a recipe by ID.
 DELETE http://localhost:3000/recipes/607d1f77bcf86cd799439011
 
+# example {
+#   "title": "Beef Stew",
+#   "description": "A hearty beef stew with vegetables",
+#   "ingredients": [
+#     { "ingredient": "60d5ec49fdd5c12f4c8d7a33", "quantity": "500g" },
+#     { "ingredient": "60d5ec49fdd5c12f4c8d7a34", "quantity": "3 cups" }
+#   ],
+#   "instructions": "Slow simmer beef with vegetables and broth for 2 hours.",
+#   "cookingTime": 120,
+#   "difficulty": "hard",
+#   "cuisine": "Irish",
+#   "servings": 6
+# }

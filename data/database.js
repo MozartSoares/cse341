@@ -1,27 +1,14 @@
 import { config } from 'dotenv';
 config();
+import mongoose from 'mongoose';
 
-import { MongoClient } from 'mongodb';
-
-let database;
-
-export const initDb = (callback) => {
-  if (database) {
-    return callback(null, database);
+const initDb = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+  } catch (error) {
+    console.error('Error connnecting to:', error);
+    process.exit(1);
   }
-  MongoClient.connect(process.env.MONGODB_URI)
-    .then((client) => {
-      database = client.db();
-      callback(null, database);
-    })
-    .catch((err) => {
-      callback(err);
-    });
 };
 
-export const getDb = () => {
-  if (!database) {
-    throw Error('Database not initialized');
-  }
-  return database;
-};
+export default initDb;

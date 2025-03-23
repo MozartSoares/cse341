@@ -38,3 +38,29 @@ Content-Type: application/json
 
 # ### DELETE request to delete an ingredient by ID.
 DELETE http://localhost:3000/ingredients/607d1f77bcf86cd799439011
+
+# example 
+# {
+#   "name": "Carrot",
+#   "type": "Vegetable",
+#   "nutritionalInfo": {
+#     "calories": 41,
+#     "fat": 0.24,
+#     "carbs": 9.6,
+#     "protein": 0.93
+#   },
+#   "origin": "France"
+# }
+# {
+#   "name": "Olive Oil",
+#   "type": "Oil",
+#   "nutritionalInfo": {
+#     "calories": 884,
+#     "fat": 100,
+#     "carbs": 0,
+#     "protein": 0
+#   },
+#   "origin": "Spain"
+# }
+
+

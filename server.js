@@ -1,5 +1,5 @@
 import express from 'express';
-import { initDb } from './data/database.js';
+import initDb from './data/database.js';
 import bodyParser from 'body-parser';
 import routes from './routes/index.js';
 
@@ -18,10 +18,6 @@ app.use((req, res, next) => {
 });
 app.use('/', routes);
 
-initDb((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    app.listen(port, () => console.log(`Server is running on port ${port}`));
-  }
+initDb().then(() => {
+  app.listen(port, () => console.log(`Server is running on port ${port}`));
 });
