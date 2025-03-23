@@ -5,13 +5,18 @@
     "description": "Recipes Api",
     "version": "1.0.0"
   },
-  "host": "https://cse341-c52f.onrender.com/",
+  "host": "http://localhost:3000",
   "basePath": "/",
-  "schemes": ["http", "https"],
+  "schemes": [
+    "http",
+    "https"
+  ],
   "paths": {
     "/": {
       "get": {
-        "tags": ["Hello world"],
+        "tags": [
+          "Hello world"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -22,9 +27,13 @@
     },
     "/recipes/": {
       "get": {
-        "tags": ["Recipe"],
+        "tags": [
+          "Recipe"
+        ],
         "description": "Get all recipes",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -35,9 +44,13 @@
         }
       },
       "post": {
-        "tags": ["Recipe"],
+        "tags": [
+          "Recipe"
+        ],
         "description": "Create a new recipe",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "body",
@@ -73,9 +86,13 @@
     },
     "/recipes/{id}": {
       "get": {
-        "tags": ["Recipe"],
+        "tags": [
+          "Recipe"
+        ],
         "description": "Get a single recipe by id",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -101,9 +118,13 @@
         }
       },
       "put": {
-        "tags": ["Recipe"],
+        "tags": [
+          "Recipe"
+        ],
         "description": "Update a recipe by id",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -138,9 +159,13 @@
         }
       },
       "delete": {
-        "tags": ["Recipe"],
+        "tags": [
+          "Recipe"
+        ],
         "description": "Delete a recipe by id",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -168,9 +193,13 @@
     },
     "/ingredients/": {
       "get": {
-        "tags": ["Ingredient"],
+        "tags": [
+          "Ingredient"
+        ],
         "description": "Get all ingredients",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -181,9 +210,13 @@
         }
       },
       "post": {
-        "tags": ["Ingredient"],
+        "tags": [
+          "Ingredient"
+        ],
         "description": "Create a new ingredient",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "body",
@@ -213,9 +246,13 @@
     },
     "/ingredients/{id}": {
       "get": {
-        "tags": ["Ingredient"],
+        "tags": [
+          "Ingredient"
+        ],
         "description": "Get a single ingredient by id",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -241,9 +278,13 @@
         }
       },
       "put": {
-        "tags": ["Ingredient"],
+        "tags": [
+          "Ingredient"
+        ],
         "description": "Update an ingredient by id",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -266,9 +307,13 @@
         }
       },
       "delete": {
-        "tags": ["Ingredient"],
+        "tags": [
+          "Ingredient"
+        ],
         "description": "Delete an ingredient by id",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
