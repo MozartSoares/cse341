@@ -1,0 +1,66 @@
+# ### GET request to retrieve all ingredients.
+GET http://localhost:3000/ingredients
+
+# ### GET request to retrieve a specific ingredient by ID.
+GET http://localhost:3000/ingredients/607d1f77bcf86cd799439011
+
+# ### POST request to create a new ingredient.
+POST http://localhost:3000/ingredients
+Content-Type: application/json
+
+{
+  "name": "Tomato",
+  "type": "vegetable",
+  "nutritionalInfo": {
+    "calories": 18,
+    "fat": 0.2,
+    "carbs": 3.9,
+    "protein": 0.9
+  },
+  "origin": "local"
+}
+
+# ### PUT request to update an ingredient by ID.
+PUT http://localhost:3000/ingredients/607d1f77bcf86cd799439011
+Content-Type: application/json
+
+{
+  "name": "Tomato",
+  "type": "vegetable",
+  "nutritionalInfo": {
+    "calories": 20,
+    "fat": 0.3,
+    "carbs": 4.0,
+    "protein": 1.0
+  },
+  "origin": "imported"
+}
+
+# ### DELETE request to delete an ingredient by ID.
+DELETE http://localhost:3000/ingredients/607d1f77bcf86cd799439011
+
+# example 
+# {
+#   "name": "Carrot",
+#   "type": "Vegetable",
+#   "nutritionalInfo": {
+#     "calories": 41,
+#     "fat": 0.24,
+#     "carbs": 9.6,
+#     "protein": 0.93
+#   },
+#   "origin": "France"
+# }
+# {
+#   "name": "Olive Oil",
+#   "type": "Oil",
+#   "nutritionalInfo": {
+#     "calories": 884,
+#     "fat": 100,
+#     "carbs": 0,
+#     "protein": 0
+#   },
+#   "origin": "Spain"
+# }
+
+

@@ -1,10 +1,16 @@
 import express from 'express';
-import contactsRouter from './contacts.js';
-
+import recipesRouter from './recipes.js';
+import ingredientsRouter from './ingredients.js';
 const router = express.Router();
+import swaggerRouter from './swagger.js';
 
-router.get('/', (req, res) => res.send('Hello world'));
+router.use('/', swaggerRouter);
+router.get('/', (req, res) => {
+  // #swagger.tags = ['Hello world']
+  res.send('Hello world');
+});
 
-router.use('/contacts', contactsRouter);
+router.use('/recipes', recipesRouter);
+router.use('/ingredients', ingredientsRouter);
 
 export default router;
